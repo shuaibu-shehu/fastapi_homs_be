@@ -1,0 +1,20 @@
+// database
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@localhost:3030/postgres?schema=public"
+}
+ 
+// generator
+generator client {
+  provider             = "prisma-client-py"
+  // interactive          = "asyncio"
+  recursive_type_depth = 5
+}
+
+// data models
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  password String?
+}
