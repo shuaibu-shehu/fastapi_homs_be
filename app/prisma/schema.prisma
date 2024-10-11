@@ -1,7 +1,7 @@
 // database
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:postgres@localhost:3030/postgres?schema=public"
+  url      = env("DATABASE_URL")
 }
  
 // generator
@@ -17,4 +17,5 @@ model User {
   email String  @unique
   name  String?
   password String?
+  createdAt DateTime @default(now())
 }
