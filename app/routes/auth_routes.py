@@ -1,28 +1,37 @@
+from datetime import datetime, timezone
+from typing import Optional
 from fastapi import APIRouter, Depends
 
-from controllers.auth_controller import signup_user
+from lib.dependencies import AccessTokenBearer
+from controllers import AuthController
 # from ..services.auth_service import  signup_user
-from models.user import UserCreate
+from models import UserCreateModel
 # from app.models.user import User
 # from app.services.auth_service import get_current_user
-
+from fastapi import status
 router = APIRouter()
 
- 
-@router.post("/signup")
-async def signup(user_create: UserCreate):
-    print(user_create)
-    return  await signup_user(user_create) 
 
-
-# async def signup_user(user_create: UserCreate):
-#     hashed_password = get_password_hash(user_create.password)
-    
-#     # Store user in "database"
-#     # Here, replace with actual DB insertion
-    
-#     # access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-#     # access_token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
-    
-#     return {"access_token": access_token, "token_type": "bearer"}
+access_token_bearer= AccessTokenBearer()
  
+@router.post("/signup", status_code=status.HTTP_201_CREATED)    
+async def signup(user_create: UserCreateModel, auth_controller: AuthController=Depends(AuthController)):
+    return  await auth_controller.signup_user(user_create) 
+
+@router.get("/verify")
+async def verify(tokenId: Optional[str]="",
+                  auth_controller: AuthController=Depends(AuthController),
+                  token_details= Depends(access_token_bearer)
+                  ):
+    print("toke details from auth beaer : ",token_details)
+
+    timestams = token_details["exp"]
+
+    time= datetime.fromtimestamp(timestams)
+    print("time stamp: ",timestams)
+    print("time: ",time)
+    # now = datetime.now(tz=timezone.utc)
+    now = datetime.now()
+    print("now: ",now)
+    # return  await auth_controller.verify_user(tokenId)
+

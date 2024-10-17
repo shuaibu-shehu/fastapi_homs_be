@@ -3,47 +3,64 @@ from datetime import timedelta
 import os
 from fastapi import HTTPException
 from passlib.context import CryptContext
-# from jose import jwt
-from models.user import UserCreate
-from config.connection import db
+import jwt
+# from models.user import UserCreate
+from config.config import Config
 from datetime import datetime
+import uuid 
+import logging
+import config.connection as db
 
 
-
-# Constants for JWT token
-SECRET_KEY =  os.getenv("SECRET_KEY")
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+# Constant for JWT token
+ACCESS_TOKEN_EXPIRE = 3600
 
 # Password hashing context
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(
+    schemes=["bcrypt"], 
+    deprecated="auto"
+    )
 
 # Helper functions
-def get_password_hash(password):
+def generate_password_hash(password):
     return pwd_context.hash(password)
 
-def create_access_token(data: dict, expires_delta: timedelta):
-    to_encode = data.copy()
-    expire = datetime.utcnow() + expires_delta
-    to_encode.update({"exp": expire})
-    # encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    # return encoded_jwt
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
 
-# Signup service
+def create_access_token(data: dict, expires_delta: timedelta=None, refresh:bool=False):
+    payload = data.copy()
+    print(expires_delta)
+    print(Config.JWT_ALGORITHM)
+    expire = datetime.now() + (expires_delta if expires_delta is not None else timedelta(seconds=ACCESS_TOKEN_EXPIRE))
+    
+    payload.update({"exp": expire})
+    
+    payload.update({"jti": str(uuid.uuid4())})
+    
+    payload.update({"refresh": refresh})
+    
+    token = jwt.encode(
+        payload=payload,
+        key=Config.JWT_SECRET, 
+        algorithm=Config.JWT_ALGORITHM
+        )  
+    
+    return token
+  
 
-# Login service
-async def login_user(user_create: UserCreate):
-    user = db.get(user_create.username)
-    
-    if not user or not pwd_context.verify(user_create.password, user['hashed_password']):
-        raise HTTPException(status_code=400, detail="Incorrect username or password")
-    
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(data={"sub": user_create.username}, expires_delta=access_token_expires)
-    
-    return {"access_token": access_token, "token_type": "bearer"}
+def decode_token(token:str)->dict:
+        try:
+            token_data=jwt.decode(
+            jwt=token,
+            key=Config.JWT_SECRET,
+            algorithms=[Config.JWT_ALGORITHM]
+            )
 
-# Get current user from token
-async def get_current_user(token: str):
-    # Logic to get the current user from the token
-    pass
+            return token_data
+        except jwt.PyJWTError as e:
+            logging.exception(e)
+            return None    
+
+# async def get_token_by_id(id: str):
+#  return db.prisma.verificationtoken.find_unique(where={"id": id})         

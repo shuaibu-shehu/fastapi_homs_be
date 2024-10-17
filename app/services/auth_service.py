@@ -1,43 +1,57 @@
 # app/services/auth_service.py
 
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 from passlib.context import CryptContext
 # from jose import jwt
+from lib.utils import decode_token, generate_password_hash
 from config.connection import db
-from lib.utils import create_access_token, get_password_hash
-from models.user import UserCreate, User
+# from lib.utils import create_access_token, get_password_hash
+from models import UserCreateModel, User
 from fastapi import HTTPException
 
-async def signup_user_service(user_create):
-    print(user_create)
-    try:
-        user_data = {
-        "name": user_create.username,
-        "email": user_create.email,
-        "password": user_create.password,
-    }
- 
-        # print("data:",user_data)
 
-        user = await db.prisma.user.create({**user_data})
-
-    # Store user in "database"
-    # Here, replace with actual DB insertion
-    
-    # access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    # access_token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
-        return {"messsage": "user created"}
-    # return {"access_token": access_token, "token_type": "bearer"}
-
-    except Exception as e:
-        print(e)
-        raise HTTPException(status_code=400, detail=str(e))
-   
-
-async def get_user_by_email(email: str):
-    user = await db.prisma.user.find_unique(
-        where={
-            "email": email
+class AuthService:
+    async def signup_user(self, user_create:UserCreateModel):
+        print(user_create)
+        try:
+            hashed_password = generate_password_hash(user_create.password)
+            print("hasged pass ",hashed_password)
+            user_data = {
+            "name": user_create.username,
+            "email": user_create.email,
+            "password": hashed_password,
         }
-    )
-    return user
+    
+            user = await db.prisma.user.create({**user_data})
+            
+            return user 
+         
+        except Exception as e:
+            print("error: ",e)
+            raise HTTPException(status_code=400, detail=str(e))
+    
+    async def verify_token(self, token_id: str):
+        try:
+            existing_token = await db.prisma.verificationtoken.find_unique(where={"id": token_id})    
+            
+            print("existing token: ",existing_token)
+            if not existing_token:
+                raise HTTPException(status_code=400, detail="Token not found")
+            
+
+            token_data= decode_token(existing_token.token)
+            print("token data: ",token_data)
+            exp_time = datetime.fromtimestamp(token_data["exp"], tz=timezone.utc)
+            print("exp: ",token_data["exp"])
+            print("exp time: ",exp_time.astimezone())
+            print("now: ",datetime.now())
+            print("now time: ",datetime.now(timezone.utc))
+            if exp_time < datetime.now(timezone.utc):
+                print("token expired")
+                # raise HTTPException(status_code=400, detail="Token expired")    
+            return existing_token
+        except Exception as e:
+            print("error: ",e)
+            raise HTTPException(status_code=400, detail=str(e))
+
+

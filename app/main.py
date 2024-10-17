@@ -2,19 +2,16 @@ from contextlib import asynccontextmanager
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
-from routes import auth_routes
+from routes import auth_router, user_router
 import uvicorn
-# from .services.test import say_hello
-
+from config.config import Config
 from config.connection import db 
-# app = FastAPI()
 
 
 class Item(BaseModel):
     name: str
     price: float
     is_offer: Union[bool, None] = None
-    docs_url="/api/v1/docs"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -38,15 +35,16 @@ async def lifespan(app: FastAPI):
 VERSION="v1"
 def init_app():
     apps = FastAPI(
-        title="Lemon code 21",
+        title="Lecdmon code 21",
         description="Fast API",
         version="1.0.0",
-        lifespan=lifespan
+        lifespan=lifespan,
+        docs_url=f"/api/{VERSION}/docs",
     )
 
-
-    apps.include_router(auth_routes.router, prefix=f"/api/{VERSION}/auth")
- 
+    apps.include_router(auth_router, prefix=f"/api/{VERSION}/auth", tags=["auth"])
+    apps.include_router(user_router, prefix=f"/api/{VERSION}/auth", tags=["user"])
+  
     @apps.get(f'/api/{VERSION}')
     def home():
         return {"message":"welcome to fast api"}

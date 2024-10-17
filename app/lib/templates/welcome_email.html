@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to OMS</title>
+    <style>
+        /* Add some basic styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .content a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .footer {
+            background-color: #f4f4f7;
+            color: #888;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            Welcome to [Your App Name]!
+        </div>
+        <div class="content">
+            <h1>Hi {{ name }},</h1>
+            <p>Thank you for signing up for [Your App Name]. We're excited to have you on board!</p>
+            <p>To get started, please verify your email address by clicking the button below:</p>
+            <a href="{{ verify_url }}" target="_blank">Verify Your Email</a>
+            <p>If you didn't create an account with us, please ignore this email.</p>
+        </div>
+        <div class="footer">
+            <p>Need help? Contact us at <a href="mailto:support@yourapp.com">support@yourapp.com</a></p>
+            <p>&copy; 2024 [Your App Name]. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
