@@ -1,6 +1,5 @@
 from fastapi_mail import FastMail, ConnectionConfig, MessageSchema, MessageType
 
-# from config.config import Config
 from pathlib import Path
 
 from config.config import Config
@@ -8,7 +7,6 @@ from config.config import Config
 # get the parent directory
 BASE_DIR = Path(__file__).resolve().parent
 
-# print(BASE_DIR)
 # create the config for sending emails
 mail_config = ConnectionConfig(
     MAIL_USERNAME=Config.MAIL_USERNAME,
@@ -34,5 +32,3 @@ def create_message(recipients: list[str], subject: str, body: str):
         recipients=recipients, subject=subject, body=body, subtype=MessageType.html
     )
     return message
-
- 

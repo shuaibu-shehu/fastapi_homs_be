@@ -17,14 +17,98 @@ model User {
   email String  @unique
   name  String?
   password String?
+  status String?
+  contact String?
   verified Boolean @default(false)
+  role Role
+  hospitalId String?
+
+  individualOxygenConsumptions IndividualOxygenConsumption[]
+  hospital Hospital? @relation(fields: [hospitalId], references: [id])
+  
+  departmentId String?
+  department Department? @relation(fields: [departmentId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model VerificationToken{
   id String @id @default(uuid())
-  email String
+  email String 
   token String @unique  
   @@unique([email, token])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
+model Hospital {
+  id String @id @default(uuid())
+  name String
+  address String
+  city String
+  state String
+  verified Boolean @default(false)
+  country String
+  contact_number String
+  contact_person String
+  email String @unique
+  users User[]
+  departments Department[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Department {
+  id String @id @default(uuid())
+  name String
+  hospitalId String
+  users User[]
+  patients Int @default(0)
+  active Boolean @default(true)
+  hospital Hospital @relation(fields: [hospitalId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status Boolean @default(true)
+  individualOxygenConsumptions IndividualOxygenConsumption[]
+  dailyOxygenConsumptions DailyOxygenConsumption[]
+
+}
+
+enum Role {
+  admin
+  doctor
+  nurse
+  therapist 
+  technician  
+}
+
+
+model IndividualOxygenConsumption {
+  id                  Int       @id @default(autoincrement())
+  departmentId        String
+  // patientId           Int
+  nurseId             String?      // Nullable if recorded by a sensor
+  sensorId            Int?      // Nullable if manually entered
+  oxygenConsumption   Float     // Oxygen consumption in liters
+  firstTimeUsage      Boolean   @default(false) // Whether this is the first time for current treatment
+  timestamp           DateTime  @default(now())
+  remarks             String?   // Optional notes for corrections
+
+  department          Department? @relation(fields: [departmentId], references: [id])
+  nurse               User?     @relation(fields: [nurseId], references: [id])
+  // sensor              Sensor?    @relation(fields: [sensorId], references: [id])
+  // patient             Patient    @relation(fields: [patientId], references: [id])
+}
+model DailyOxygenConsumption {
+  id                  String      @id @default(uuid())
+  departmentId        String
+  totalConsumption    Float       @default(0)
+  date              DateTime  @default(dbgenerated("(CURRENT_DATE)"))
+  lastUpdated       DateTime  @default(now())
+
+  department        Department @relation(fields: [departmentId], references: [id])
+
+  @@unique([departmentId, date]) // Ensure one record per department per day
+}
+

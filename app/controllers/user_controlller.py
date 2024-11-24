@@ -1,33 +1,31 @@
 from fastapi import HTTPException, status
+from lib import error_logger
+from lib.errors import InvalidCredentials
 from lib.utils import create_access_token, verify_password
-from services import UserService
+from services import UserService, HospitalService
 from datetime import timedelta
 from  fastapi.responses import JSONResponse
 
 user_service = UserService()    
+hospital_service = HospitalService()
 
 REFRESH_TOKEN_EXPIRY=2
 class UserController:
 
     async def login_user(self, user_data):
         try:
-
             existing_user = await user_service.get_user_by_email(user_data.email)
             if not existing_user:
-                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
-            
+                raise InvalidCredentials()
             verify = verify_password(user_data.password, existing_user.password)
             
             if not verify:
-                raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect password")  
-            
-            print("verified password",verify)
+                raise InvalidCredentials()
             access_token = create_access_token(
                 data={
                     "email": existing_user.email,
                     "user_uid": str(existing_user.id)
                     })
-            print("access token",access_token)
            
             refresh_token = create_access_token(
                 data={
@@ -52,14 +50,17 @@ class UserController:
                         }
                     )
         except Exception as e:
-              print("error: ",e)
+              error_logger.error(e)
               raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
-    # async def signup_user(self, user_create: UserCreateModel):
-
-    #     await user_service.login_user(user_data)
-        
-    #     # print(user_data)
-    #     return
-
  
+ 
+    async def get_users_by_hospital_id(self, hospital_id: str, email: str):
+        try:
+            hospital = await hospital_service.get_hospital_by_id(hospital_id)
+            if not hospital:
+                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Hospital not found")
+            return await user_service.get_users_by_hospital_id(hospital_id)
+        except Exception as e:
+            error_logger.error(e)
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     

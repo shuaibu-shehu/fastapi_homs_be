@@ -1,9 +1,9 @@
 @echo off
 REM Activating the virtual environment
-call venv\Scripts\activate
+source venv/Scripts/activate && cd app/ && prisma studio
 
 REM Running the FastAPI application
-cd app/ && prisma studio
+
 
 REM Optionally, keep the terminal open after execution
 pause
