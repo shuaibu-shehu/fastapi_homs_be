@@ -14548,3 +14548,20 @@ NameError: name 'token_' is not defined
 2024-11-23 23:27:55,960 - ERROR - Error occurred: InsufficientPermission -  - Request: GET http://localhost:8888/api/v1/hospital/users/520fa137-ae04-4026-83a7-02e615080761
 2024-11-23 23:30:11,532 - ERROR - 
 2024-11-23 23:30:11,582 - ERROR - Error occurred: InsufficientPermission -  - Request: GET http://localhost:8888/api/v1/hospital/users/520fa137-ae04-4026-83a7-02e615080761
+2024-11-24 14:14:42,107 - ERROR - 
+2024-11-24 14:14:42,930 - ERROR - 
+2024-11-24 14:14:43,913 - ERROR - 
+2024-11-24 15:55:21,620 - ERROR - Foreign key constraint failed on the field: `DailyOxygenConsumption_department_id_fkey (index)`
+2024-11-24 15:55:28,126 - ERROR - Foreign key constraint failed on the field: `DailyOxygenConsumption_department_id_fkey (index)`
+2024-11-24 15:55:35,498 - ERROR - Foreign key constraint failed on the field: `DailyOxygenConsumption_department_id_fkey (index)`
+2024-11-24 17:09:06,211 - ERROR - Unique constraint failed on the fields: (`email`)
+2024-11-24 17:09:06,211 - ERROR - 500: Unique constraint failed on the fields: (`email`)
+2024-11-24 17:35:26,605 - ERROR - 'dict' object has no attribute 'model_dump'
+2024-11-24 17:36:15,916 - ERROR - 
+2024-11-24 17:36:42,887 - ERROR - 'dict' object has no attribute 'model_dump'
+2024-11-24 17:37:26,500 - ERROR - 'dict' object has no attribute 'model_dump'
+2024-11-24 17:37:37,971 - ERROR - 'dict' object has no attribute 'model_dump'
+2024-11-24 17:38:23,685 - ERROR - Unable to match input value to any allowed input type for the field. Parse errors: [`data.oxygen_consumption`: A value is required but not set, `data.oxygen_consumption`: A value is required but not set]
+2024-11-24 17:42:08,000 - ERROR - Unable to match input value to any allowed input type for the field. Parse errors: [`data.oxygen_consumption`: A value is required but not set, `data.oxygen_consumption`: A value is required but not set]
+2024-11-24 17:52:38,483 - ERROR - 
+2024-11-24 17:53:01,504 - ERROR - 

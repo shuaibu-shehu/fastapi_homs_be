@@ -8,7 +8,8 @@ from lib.errors import AccessTokenRequired, HospitalAlreadyExists, HospitalNotFo
 from routes import (auth_router,
                     user_router,
                     hospital_router,
-                    department_router)
+                    department_router,
+                    oxygen_router)
 import uvicorn
 from config.config import Config
 from config.connection import db 
@@ -55,6 +56,7 @@ def init_app():
     app.include_router(user_router, prefix=f"/api/{VERSION}/user", tags=["user"])
     app.include_router(hospital_router, prefix=f"/api/{VERSION}/hospital", tags=["hospital"])
     app.include_router(department_router, prefix=f"/api/{VERSION}/departments", tags=["departments"])
+    app.include_router(oxygen_router, prefix=f"/api/{VERSION}/oxygen", tags=["oxygen"])
 
 
     @app.get(f'/api/{VERSION}')

@@ -1,3 +1,4 @@
+from datetime import datetime
 from fastapi import HTTPException,status
 from lib.error_logger import error_logger
 from services.hospital_service import HospitalService
@@ -6,13 +7,14 @@ from lib.errors import (DepartmentAlreadyExists,
                         UserNotFound,
                         DepartmentNotFound
                         )
-from services import DepartmentService,UserService
-from models import DepartmentCreateModel
+from services import DepartmentService,UserService, OxygenService
+from models import DepartmentCreateModel, DailyOxygenConsumptionModel
 
 
 department_service = DepartmentService()
 user_service = UserService()
 hospital_service = HospitalService()
+oxygen_service = OxygenService()
 class DepartmentController:
     async def create_department(self, department_details: DepartmentCreateModel, email):
         try:
@@ -31,7 +33,7 @@ class DepartmentController:
                 # raise DepartmentAlreadyExists()
                 return {"success": False, "message": "Department already exists", "data": existing_department}
             department =await department_service.create_department(department_details.dict(), hospital)
-
+            await oxygen_service.create_daily_oxygen_entry({"department_id": department.id, "total_consumption": 0})
             return {"success":True, "message": "Department created successfully", "data": department}
         
         except Exception as e:
@@ -45,15 +47,13 @@ class DepartmentController:
             user = await user_service.get_user_by_email(email)
             if not user:
                 raise UserNotFound()
+            
+            department = await department_service.get_department_by_id(department_id)
 
-            hospital = await hospital_service.get_hospital_by_email(email)
-            if not hospital:
-                raise HospitalNotFound()
-
-            department = await department_service.get_departments_by_id(department_id)
             if not department:
                 raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Department not found")
             return {"success":True, "message": "Department found successfully", "data": department}
+        
         except Exception as e:
             error_logger.error(e)
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
@@ -140,3 +140,4 @@ class DepartmentController:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))   
             
     
+        

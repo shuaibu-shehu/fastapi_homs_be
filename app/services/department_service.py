@@ -35,7 +35,7 @@ class DepartmentService:
             error_logger.error(e)
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
         
-    async def get_departments_by_id(self, department_id: str):
+    async def get_department_by_id(self, department_id: str):
         try:
             return await db.prisma.department.find_unique(
                 where={
@@ -89,3 +89,4 @@ class DepartmentService:
     async def delete_staff_from_department(self, department: dict, staff: dict):
         return await db.prisma.user.delete(where={"id": staff.id})
         
+    
