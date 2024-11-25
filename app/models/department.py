@@ -17,7 +17,7 @@ class StaffCreateModel(BaseModel):
 
 
 class DailyOxygenConsumptionModel(BaseModel):
-    total_consumption: float
+    oxygen_consumption: float
     bed_number: int
     is_first_time_usage: bool
     remarks: Optional[str] = None

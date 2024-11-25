@@ -94,7 +94,8 @@ model IndividualOxygenConsumption {
   is_first_time_usage      Boolean   @default(false) // Whether this is the first time for current treatment
   timestamp           DateTime  @default(now())
   remarks             String?   // Optional notes for corrections
-
+  daily_oxygen_consumption_id String?
+  daily_oxygen_consumption DailyOxygenConsumption? @relation(fields: [daily_oxygen_consumption_id], references: [id])
   department          Department? @relation(fields: [department_id], references: [id])
   nurse               User?     @relation(fields: [nurse_id], references: [id])
   
@@ -106,6 +107,7 @@ model DailyOxygenConsumption {
   date              DateTime  @default(dbgenerated("(CURRENT_DATE)"))
   last_updated       DateTime  @default(now())
 
+  individualOxygenConsumptions IndividualOxygenConsumption[]
   department        Department @relation(fields: [department_id], references: [id], onDelete: Cascade)
 
   @@unique([department_id, date]) // Ensure one record per department per day
