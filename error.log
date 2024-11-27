@@ -14603,3 +14603,116 @@ NameError: name 'token_' is not defined
 2024-11-25 14:12:14,757 - ERROR - Could not find field at `updateOneDailyOxygenConsumption.data.oxygen_consumption`
 2024-11-25 14:15:06,009 - ERROR - Could not find field at `updateOneDailyOxygenConsumption.data.oxygen_consumption`
 2024-11-25 14:46:27,762 - ERROR - Could not find field at `findFirstDailyOxygenConsumption.where.date`
+2024-11-25 16:08:15,013 - ERROR - 
+2024-11-25 16:08:23,030 - ERROR - 
+2024-11-25 16:08:57,765 - ERROR - 
+2024-11-25 16:09:05,624 - ERROR - 
+2024-11-25 16:09:51,675 - ERROR - 
+2024-11-25 16:10:20,477 - ERROR - 
+2024-11-25 16:10:30,245 - ERROR - 
+2024-11-25 16:10:39,556 - ERROR - 
+2024-11-25 16:11:17,280 - ERROR - 
+2024-11-25 16:11:17,473 - ERROR - 
+2024-11-25 16:11:26,642 - ERROR - 
+2024-11-25 16:12:12,600 - ERROR - 
+2024-11-25 16:12:42,811 - ERROR - 
+2024-11-25 16:12:42,845 - ERROR - 
+2024-11-25 16:12:53,175 - ERROR - 
+2024-11-25 16:16:01,351 - ERROR - 
+2024-11-25 16:16:01,443 - ERROR - 
+2024-11-25 16:16:14,848 - ERROR - 
+2024-11-25 16:16:35,358 - ERROR - 
+2024-11-25 16:16:44,720 - ERROR - 
+2024-11-25 16:17:03,284 - ERROR - 
+2024-11-25 16:17:19,441 - ERROR - 
+2024-11-25 16:17:24,259 - ERROR - 
+2024-11-25 16:17:44,242 - ERROR - 
+2024-11-25 16:17:48,818 - ERROR - 
+2024-11-25 16:17:49,379 - ERROR - 
+2024-11-25 16:18:19,374 - ERROR - 
+2024-11-25 16:18:57,947 - ERROR - 
+2024-11-25 16:19:13,584 - ERROR - 
+2024-11-25 16:20:01,445 - ERROR - 
+2024-11-25 16:20:35,165 - ERROR - 
+2024-11-25 16:20:52,120 - ERROR - 
+2024-11-25 16:20:52,234 - ERROR - 
+2024-11-25 16:20:52,302 - ERROR - 
+2024-11-25 16:22:21,285 - ERROR - 
+2024-11-25 16:22:22,751 - ERROR - 
+2024-11-25 16:22:29,179 - ERROR - 
+2024-11-25 16:22:33,988 - ERROR - 
+2024-11-25 16:22:58,796 - ERROR - 
+2024-11-25 16:23:21,088 - ERROR - 
+2024-11-25 16:23:43,342 - ERROR - 
+2024-11-25 16:24:22,101 - ERROR - 
+2024-11-25 16:24:34,896 - ERROR - 
+2024-11-25 16:24:43,486 - ERROR - 
+2024-11-25 16:24:49,664 - ERROR - 
+2024-11-25 16:25:24,740 - ERROR - 
+2024-11-25 16:25:43,884 - ERROR - 
+2024-11-25 16:25:51,622 - ERROR - 
+2024-11-25 16:26:08,433 - ERROR - 
+2024-11-25 16:26:32,798 - ERROR - 
+2024-11-25 16:26:42,228 - ERROR - 
+2024-11-25 16:26:51,175 - ERROR - 
+2024-11-25 16:27:12,003 - ERROR - 
+2024-11-25 16:27:25,148 - ERROR - 
+2024-11-25 16:27:39,456 - ERROR - 
+2024-11-25 16:28:02,677 - ERROR - 
+2024-11-25 16:28:44,119 - ERROR - 
+2024-11-25 16:30:07,274 - ERROR - 
+2024-11-25 16:30:12,225 - ERROR - 
+2024-11-25 16:30:17,324 - ERROR - 
+2024-11-25 16:30:21,060 - ERROR - 
+2024-11-25 16:30:46,271 - ERROR - 
+2024-11-25 16:30:46,438 - ERROR - 
+2024-11-25 16:30:48,105 - ERROR - 
+2024-11-25 16:30:56,820 - ERROR - 
+2024-11-25 16:32:05,471 - ERROR - 
+2024-11-25 16:32:11,075 - ERROR - 
+2024-11-25 16:32:28,305 - ERROR - 
+2024-11-25 16:32:48,914 - ERROR - 
+2024-11-25 16:32:52,476 - ERROR - 
+2024-11-25 16:33:52,706 - ERROR - 
+2024-11-25 16:34:13,264 - ERROR - 
+2024-11-25 16:34:22,463 - ERROR - 
+2024-11-25 16:34:54,697 - ERROR - 
+2024-11-25 16:35:05,813 - ERROR - 
+2024-11-25 16:35:40,114 - ERROR - 
+2024-11-25 16:35:40,522 - ERROR - 
+2024-11-25 16:35:48,811 - ERROR - 
+2024-11-25 16:36:32,636 - ERROR - 
+2024-11-25 16:36:48,027 - ERROR - 
+2024-11-25 16:36:55,450 - ERROR - 
+2024-11-25 16:37:10,930 - ERROR - 
+2024-11-25 17:47:43,698 - ERROR - Field: "individual_oxygen_consumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:47:44,154 - ERROR - Field: "individual_oxygen_consumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:48:19,975 - ERROR - Field: "individual_oxygen_consumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:48:20,634 - ERROR - Field: "individual_oxygen_consumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:48:47,217 - ERROR - Field: "individual_oxygen_consumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:48:47,505 - ERROR - Field: "individual_oxygen_consumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:50:13,194 - ERROR - Field: "individualOxygenConsumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:50:13,629 - ERROR - Field: "individualOxygenConsumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:51:10,086 - ERROR - Field: "individualOxygenConsumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:51:10,354 - ERROR - Field: "individualOxygenConsumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:51:44,458 - ERROR - Field: "IndividualOxygenConsumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:51:44,868 - ERROR - Field: "IndividualOxygenConsumption" either does not exist or is not a relational field on the DailyOxygenConsumption model
+2024-11-25 17:59:47,676 - ERROR - Unable to match input value to any allowed input type for the field. Parse errors: [Unable to match input value to any allowed input type for the field. Parse errors: [Invalid argument type. `patients_count` should be of any of the following types: `Int`, Some fields are missing: Expected exactly one field to be present, got 0.], Unable to match input value to any allowed input type for the field. Parse errors: [Invalid argument type. `patients_count` should be of any of the following types: `Int`, Some fields are missing: Expected exactly one field to be present, got 0.]]
+2024-11-25 18:00:39,298 - ERROR - Unable to match input value to any allowed input type for the field. Parse errors: [Unable to match input value to any allowed input type for the field. Parse errors: [Invalid argument type. `patients_count` should be of any of the following types: `Int`, Some fields are missing: Expected exactly one field to be present, got 0.], Unable to match input value to any allowed input type for the field. Parse errors: [Invalid argument type. `patients_count` should be of any of the following types: `Int`, Some fields are missing: Expected exactly one field to be present, got 0.]]
+2024-11-25 18:04:21,606 - ERROR - Unable to match input value to any allowed input type for the field. Parse errors: [Unable to match input value to any allowed input type for the field. Parse errors: [Invalid argument type. `patients_count` should be of any of the following types: `Int`, Some fields are missing: Expected exactly one field to be present, got 0.], Unable to match input value to any allowed input type for the field. Parse errors: [Invalid argument type. `patients_count` should be of any of the following types: `Int`, Some fields are missing: Expected exactly one field to be present, got 0.]]
+2024-11-25 18:59:10,100 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 18:59:16,883 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 18:59:45,742 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 18:59:47,856 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 18:59:51,261 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:00:50,176 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:01:07,258 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:01:43,007 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:02:25,896 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:02:32,469 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:02:43,122 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:03:10,219 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:03:11,380 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:03:26,130 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:04:23,736 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`
+2024-11-25 19:09:06,121 - ERROR - Could not find field at `deleteOneIndividualOxygenConsumption.where.id`

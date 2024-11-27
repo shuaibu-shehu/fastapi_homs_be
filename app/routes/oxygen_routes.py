@@ -29,5 +29,19 @@ async def record_daily_oxygen_entry(department_id: str, staff_id: str, oxygen_en
 async def get_daily_oxygen_entries(department_id: str, email: str):
     return await oxygen_controller.get_daily_oxygen_entries(department_id, email)
 
-# @router.get('/daily/{dapartment_id}')
-# async def 
+@router.get('/daily/{department_id}/{date}')
+async def get_daily_overall_oxygen_consumption(
+    department_id: str,
+    date: str):
+    return await oxygen_controller.get_daily_overall_oxygen_consumption(department_id, date)
+
+
+
+@router.delete('/entry/{id}')
+async def delete_daily_oxygen_entry(id: str, token_details= Depends(access_token_bearer)):
+    return await oxygen_controller.delete_daily_oxygen_entry(id, token_details["email"])
+
+
+@router.delete('/daily/{department_id}/{date}/{oxygen_consumption}')
+async def delete_daily_overall_oxygen_consumption(department_id: str, date: str, oxygen_consumption: float):
+    return await oxygen_controller.delete_daily_overall_oxygen_consumption(department_id, date, oxygen_consumption)

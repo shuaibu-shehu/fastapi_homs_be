@@ -85,7 +85,7 @@ enum Role {
 
 
 model IndividualOxygenConsumption {
-  id                  Int       @id @default(autoincrement())
+  id                   String      @id @default(uuid())
   department_id        String
   bed_number           Int
   nurse_id             String?      // Nullable if recorded by a sensor
@@ -106,7 +106,7 @@ model DailyOxygenConsumption {
   total_consumption    Float       @default(0)
   date              DateTime  @default(dbgenerated("(CURRENT_DATE)"))
   last_updated       DateTime  @default(now())
-
+  patients_count     Int       @default(0)
   individualOxygenConsumptions IndividualOxygenConsumption[]
   department        Department @relation(fields: [department_id], references: [id], onDelete: Cascade)
 
