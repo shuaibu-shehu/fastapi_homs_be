@@ -33,7 +33,7 @@ class DepartmentController:
                 # raise DepartmentAlreadyExists()
                 return {"success": False, "message": "Department already exists", "data": existing_department}
             department =await department_service.create_department(department_details.dict(), hospital)
-            await oxygen_service.create_daily_oxygen_entry({"department_id": department.id, "total_consumption": 0})
+            # await oxygen_service.create_daily_oxygen_entry({"department_id": department.id, "total_consumption": 0})
             return {"success":True, "message": "Department created successfully", "data": department}
         
         except Exception as e:

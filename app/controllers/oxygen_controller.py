@@ -23,8 +23,6 @@ class OxygenController:
             user = await user_service.get_user_by_email(email)
             if not user:
                 raise UserNotFound()
-            # print(user)
-            print("staff_id : ",staff_id)
             department = await department_service.get_department_by_id(department_id=department_id)
             if not department:
                 raise DepartmentNotFound()
@@ -69,6 +67,7 @@ class OxygenController:
 
 
     async def delete_daily_oxygen_entry(self, id: str, email: str):
+        
         try:
             user = await user_service.get_user_by_email(email)
             if not user:

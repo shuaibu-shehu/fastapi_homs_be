@@ -22,3 +22,8 @@ class DailyOxygenConsumptionModel(BaseModel):
     is_first_time_usage: bool
     remarks: Optional[str] = None
 
+
+class BedCreateModel(BaseModel):
+    bed_number: str
+    sensor_id: Optional[str] = None
+

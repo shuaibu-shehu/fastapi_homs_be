@@ -35,7 +35,7 @@ class AuthService:
     async def verify_token(self, token_id: str):
         try:
             existing_token = await db.prisma.verificationtoken.find_unique(where={"id": token_id})    
-            
+             
             if not existing_token:
                 raise InvalidCredentials()
 

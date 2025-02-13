@@ -23,7 +23,7 @@ model User {
   role Role
   hospitalId String?
 
-  individualOxygenConsumptions IndividualOxygenConsumption[]
+  // individualOxygenConsumptions IndividualOxygenConsumption[]
   hospital Hospital? @relation(fields: [hospitalId], references: [id])
   
   departmentId String?
@@ -36,10 +36,10 @@ model VerificationToken{
   id String @id @default(uuid())
   email String 
   token String @unique  
-  @@unique([email, token])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  @@unique([email, token])
 }
 
 model Hospital {
@@ -70,9 +70,7 @@ model Department {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   status Boolean @default(true)
-  individualOxygenConsumptions IndividualOxygenConsumption[]
-  dailyOxygenConsumptions DailyOxygenConsumption[]
-
+  beds Bed[]  
 }
 
 enum Role {
@@ -83,34 +81,47 @@ enum Role {
   technician  
 }
 
+ 
+  model Bed {
+  id           String                 @id @default(uuid())
+  bed_number   Int
+  created_at   DateTime               @default(now())
+  updated_at   DateTime               @updatedAt
 
-model IndividualOxygenConsumption {
-  id                   String      @id @default(uuid())
-  department_id        String
-  bed_number           Int
-  nurse_id             String?      // Nullable if recorded by a sensor
-  sensor_id            Int?      // Nullable if manually entered
-  oxygen_consumption   Float     // Oxygen consumption in liters
-  is_first_time_usage      Boolean   @default(false) // Whether this is the first time for current treatment
-  timestamp           DateTime  @default(now())
-  remarks             String?   // Optional notes for corrections
-  daily_oxygen_consumption_id String?
-  daily_oxygen_consumption DailyOxygenConsumption? @relation(fields: [daily_oxygen_consumption_id], references: [id])
-  department          Department? @relation(fields: [department_id], references: [id])
-  nurse               User?     @relation(fields: [nurse_id], references: [id])
+  oxygen_consumption Float? @default(0)
+  sensor_id String?
+  department_id String
+  department Department @relation(fields: [department_id], references: [id])
   
+  daily_consumptions DailyOxygenConsumption[]
+  
+  sensor_readings SensorReading[]
 }
+
 model DailyOxygenConsumption {
-  id                  String      @id @default(uuid())
-  department_id        String
-  total_consumption    Float       @default(0)
-  date              DateTime  @default(dbgenerated("(CURRENT_DATE)"))
-  last_updated       DateTime  @default(now())
-  patients_count     Int       @default(0)
-  individualOxygenConsumptions IndividualOxygenConsumption[]
-  department        Department @relation(fields: [department_id], references: [id], onDelete: Cascade)
+  id              String             @id @default(uuid())
+  total_consumption Float? @default(0)
+  date            String 
+  bed_id          String
+  bed             Bed                @relation(fields: [bed_id], references: [id])
+  
+  sensor_readings SensorReading[] 
 
-  @@unique([department_id, date]) // Ensure one record per department per day
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+ 
+  @@unique([bed_id, date])
 }
 
+model SensorReading {
+  id           String                 @id @default(uuid())
+  timestamp    DateTime               @default(now())
+  oxygen_flow  Float                  // Oxygen flow rate in liters per minute
+  duration     Float                  // Duration in minutes
+  input_type   String?
+  bed_id String
+  bed Bed @relation(fields: [bed_id], references: [id])
   
+  daily_consumption_id String
+  daily_consumption DailyOxygenConsumption @relation(fields: [daily_consumption_id], references: [id])
+ }

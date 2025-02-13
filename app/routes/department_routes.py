@@ -14,10 +14,10 @@ role_cherker = RoleChecker(["doctor","admin"])
 async def get_departments(token_details= Depends(access_token_bearer)):
     return await department_controller.get_departments(token_details["email"])
 
-@router.post("/", dependencies=[Depends(role_cherker)])
+@router.post("/")
 async def create_department(department_details: DepartmentCreateModel, token_details= Depends(access_token_bearer)):
      return await department_controller.create_department(department_details, token_details["email"]) 
-
+ 
 @router.get("/{department_id}")
 async def get_department(department_id: str, token_details= Depends(access_token_bearer)):
      return await department_controller.get_department_by_id(department_id, token_details["email"])
@@ -35,13 +35,13 @@ async def delete_department(department_id: str, token_details= Depends(access_to
 async def delete_staff_from_department(department_id: str, staff_id: str, token_details= Depends(access_token_bearer)):
      return await department_controller.delete_staff_from_department(department_id, staff_id, token_details["email"])
 
-@router.post("/daily-oxygen-entry/{department_id}/{staff_id}")
-async def record_daily_oxygen_entry(department_id: str, staff_id: str,oxygen_entry: DailyOxygenConsumptionModel, token_details= Depends(access_token_bearer)):
-     return await department_controller.record_daily_oxygen_entry(department_id, staff_id, oxygen_entry, token_details["email"])
+# @router.post("/daily-oxygen-entry/{department_id}/{staff_id}")
+# async def record_daily_oxygen_entry(department_id: str, staff_id: str,oxygen_entry: DailyOxygenConsumptionModel, token_details= Depends(access_token_bearer)):
+#      return await department_controller.record_daily_oxygen_entry(department_id, staff_id, oxygen_entry, token_details["email"])
 
 
-@router.get("/daily-oxygen-entries/{department_id}")
-async def get_daily_oxygen_entries(department_id: str, token_details= Depends(access_token_bearer)):
-     return await department_controller.get_daily_oxygen_entries(department_id, token_details["email"])  
+# @router.get("/daily-oxygen-entries/{department_id}")
+# async def get_daily_oxygen_entries(department_id: str, token_details= Depends(access_token_bearer)):
+#      return await department_controller.get_daily_oxygen_entries(department_id, token_details["email"])  
 
   

@@ -8,7 +8,6 @@ from config.connection import db
 class DepartmentService:
     async def create_department(self, department_details: dict, hospital):
         try: 
-            print("reached here", department_details["name"], hospital)
             return await db.prisma.department.create(
                 data={
                     "name": department_details["name"],
@@ -20,8 +19,6 @@ class DepartmentService:
         except Exception as e:
             error_logger.error(e)
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
-        # print(department_details)
-        # pass
     
     async def get_departments_by_name_and_hospital_id(self, name: str, hospital_id: str):
         try:
@@ -40,7 +37,8 @@ class DepartmentService:
             return await db.prisma.department.find_unique(
                 where={
                     "id": department_id
-                }
+                },
+                include={"beds": True}
             )    
         except Exception as e:
             error_logger.error(e)
@@ -81,7 +79,7 @@ class DepartmentService:
         return await db.prisma.user.find_first(where={"departmentId": department_id, "email": email})
 
     async def get_departments(self, hospital_id: str):
-        return await db.prisma.department.find_many(where={"hospitalId": hospital_id}, include={"users": True})
+        return await db.prisma.department.find_many(where={"hospitalId": hospital_id}, include={"users": True, "beds": True})
 
     async def delete_department(self, department: dict):
         return await db.prisma.department.delete(where={"id": department.id})
