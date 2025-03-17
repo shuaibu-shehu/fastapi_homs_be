@@ -6,6 +6,7 @@ from models import HospitalOnboardModel
 from config.connection import db
 
 class HospitalService():
+    
     async def onboard(self, hospital_details: dict):        
         return await db.prisma.hospital.create(data=hospital_details)
 

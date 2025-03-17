@@ -85,30 +85,32 @@ enum Role {
 
 
 model IndividualOxygenConsumption {
-  id                  Int       @id @default(autoincrement())
-  departmentId        String
-  // patientId           Int
-  nurseId             String?      // Nullable if recorded by a sensor
-  sensorId            Int?      // Nullable if manually entered
-  oxygenConsumption   Float     // Oxygen consumption in liters
-  firstTimeUsage      Boolean   @default(false) // Whether this is the first time for current treatment
+  id                   String      @id @default(uuid())
+  department_id        String
+  bed_number           Int
+  nurse_id             String?      // Nullable if recorded by a sensor
+  sensor_id            Int?      // Nullable if manually entered
+  oxygen_consumption   Float     // Oxygen consumption in liters
+  is_first_time_usage      Boolean   @default(false) // Whether this is the first time for current treatment
   timestamp           DateTime  @default(now())
   remarks             String?   // Optional notes for corrections
-
-  department          Department? @relation(fields: [departmentId], references: [id])
-  nurse               User?     @relation(fields: [nurseId], references: [id])
-  // sensor              Sensor?    @relation(fields: [sensorId], references: [id])
-  // patient             Patient    @relation(fields: [patientId], references: [id])
+  daily_oxygen_consumption_id String?
+  daily_oxygen_consumption DailyOxygenConsumption? @relation(fields: [daily_oxygen_consumption_id], references: [id])
+  department          Department? @relation(fields: [department_id], references: [id])
+  nurse               User?     @relation(fields: [nurse_id], references: [id])
+  
 }
 model DailyOxygenConsumption {
   id                  String      @id @default(uuid())
-  departmentId        String
-  totalConsumption    Float       @default(0)
+  department_id        String
+  total_consumption    Float       @default(0)
   date              DateTime  @default(dbgenerated("(CURRENT_DATE)"))
-  lastUpdated       DateTime  @default(now())
+  last_updated       DateTime  @default(now())
+  patients_count     Int       @default(0)
+  individualOxygenConsumptions IndividualOxygenConsumption[]
+  department        Department @relation(fields: [department_id], references: [id], onDelete: Cascade)
 
-  department        Department @relation(fields: [departmentId], references: [id])
-
-  @@unique([departmentId, date]) // Ensure one record per department per day
+  @@unique([department_id, date]) // Ensure one record per department per day
 }
 
+  

@@ -133,7 +133,8 @@ class AuthController:
                         "email": existing_user.email,
                         "uid": str(existing_user.id),
                         "name": existing_user.name,
-                        "role": existing_user.role
+                        "role": existing_user.role,
+                        "department_id": existing_user.departmentId
                     },
                      "hospital": {
                             "id": existing_user.hospital.id,
@@ -153,6 +154,6 @@ class AuthController:
               raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
 
 
-    
+
  
  

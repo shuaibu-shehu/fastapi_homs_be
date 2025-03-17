@@ -48,8 +48,8 @@ class TokenBearer(HTTPBearer):
                     )        
             
             
-        print("\n\nin blacklist : ",token_data)
-        if await token_in_blocklist(token_data['jti']):
+        if await token_in_blocklist(token_data['jti']):  
+            print("\n\nin blacklist : ",token_data)
             # print("token in blocklist")
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN, detail={
@@ -90,7 +90,6 @@ class RefreshTokenBearer(TokenBearer):
         
 class VerificationTokenBearer(TokenBearer):
     async def verify_token_data(self, token_data: dict) -> None:
-        print(token_data)
         if token_data and (not token_data["is_email_verification"] or token_data["refresh"]):
                     raise HTTPException(
                         status_code=status.HTTP_403_FORBIDDEN,
