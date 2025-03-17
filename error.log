@@ -14548,3 +14548,1494 @@ NameError: name 'token_' is not defined
 2024-11-23 23:27:55,960 - ERROR - Error occurred: InsufficientPermission -  - Request: GET http://localhost:8888/api/v1/hospital/users/520fa137-ae04-4026-83a7-02e615080761
 2024-11-23 23:30:11,532 - ERROR - 
 2024-11-23 23:30:11,582 - ERROR - Error occurred: InsufficientPermission -  - Request: GET http://localhost:8888/api/v1/hospital/users/520fa137-ae04-4026-83a7-02e615080761
+2025-03-17 20:25:16,549 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:25:16,801 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:28:03,439 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:28:03,863 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:28:55,499 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:28:55,740 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:32:23,533 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:32:23,839 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:33:59,993 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:34:00,233 - ERROR - Internal Server Error: Error 111 connecting to localhost:6379. Connection refused. - Request: GET http://localhost:8888/api/v1/auth/verify
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 736, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |          ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    |     solved = await call(**solved_result.values)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    |     if await token_in_blocklist(token_data['jti']):
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    |     jti_value = await token_blocklist.get(jti)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    |     conn = self.connection or await pool.get_connection(command_name, **options)
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    |     await self.ensure_connection(connection)
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    |     await connection.connect()
+    |   File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    |     raise ConnectionError(self._error_message(e))
+    | redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/trustedhost.py", line 51, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/middleware.py", line 19, in custom_logging
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 628, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/dependencies.py", line 52, in __call__
+    if await token_in_blocklist(token_data['jti']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/app/lib/redis.py", line 14, in token_in_blocklist
+    jti_value = await token_blocklist.get(jti)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1058, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1091, in ensure_connection
+    await connection.connect()
+  File "/home/ssa/Desktop/fastapi_homs_be/venv/lib/python3.12/site-packages/redis/asyncio/connection.py", line 283, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2025-03-17 20:35:57,142 - ERROR - 404: No departments found

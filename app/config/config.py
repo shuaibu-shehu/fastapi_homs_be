@@ -22,13 +22,15 @@ class Settings(BaseSettings):
     # VALIDATE_CERTS: bool = True
     FRONTEND_URL: ClassVar[str]="http://localhost:3000"
     DOMAIN: str
-    TEMPLATE_FOLDER: ClassVar[str]="C:/Users/Khalifa/Desktop/fastapi_homs_be/app/lib/templates"
+    TEMPLATE_FOLDER: ClassVar[str] = r"/home/ssa/Desktop/fastapi_homs_be/app/lib/templates"
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
  
 
-Config = Settings()
+Config = Settings() 
 
 
 # broker_url = Config.REDIS_URL
 # result_backend = Config.REDIS_URL
 # broker_connection_retry_on_startup = True
+
+# /home/ssa/Desktop/fastapi_homs_be/app/lib/templates/welcome_email.html

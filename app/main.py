@@ -61,7 +61,7 @@ def init_app():
     def home():
         return {"message":"welcome to fast api"}
     
-    return app
+    return app   
 
 app = init_app()
    
