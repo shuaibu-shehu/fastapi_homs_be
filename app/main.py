@@ -27,7 +27,7 @@ class Item(BaseModel):
     price: float
     is_offer: Union[bool, None] = None
 
-
+    
 connected_clients = []
 
 # WebSocket Functions
@@ -125,4 +125,4 @@ if __name__ == '__main__':
                  port=8888,
                  reload=True,
                  access_log=False
-                 )  #
+                 )  
